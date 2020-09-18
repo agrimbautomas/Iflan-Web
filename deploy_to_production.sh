@@ -16,8 +16,8 @@ echo "> Replacing old project folder"
 ssh -tt -l deploy $PRODUCTION_SERVER_HOST <<-REMOTESSH
 cd /srv/web
 tar xzvf build.tar.gz
-rm -rf vientoenelrio-web
-mv build vientoenelrio-web
+rm -rf iflan-web
+mv build iflan-web
 rm build.tar.gz
 exit
 REMOTESSH

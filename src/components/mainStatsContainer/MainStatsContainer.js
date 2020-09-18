@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import spinner from '../../assets/img/spinner.gif';
 import StatsSlide from "../statsSlide/StatsSlide";
 
-const ENDPOINT = "https://api.vientoenelrio.com/1";
+const ENDPOINT = "https://api.iflan.house/1";
 
 //const ENDPOINT = "http://localhost:3000/1";
 

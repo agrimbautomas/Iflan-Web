@@ -1,0 +1,43 @@
+.spinner-container {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  height: 100vh;
+
+  img {
+    max-width: 8rem;
+    width: 50%;
+    margin: auto;
+  }
+}
+
+.stats-container {
+  width: 100%;
+  display: inline-block;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  z-index: 99;
+}
+
+.stats-slider-container {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  bottom: 2%;
+  margin: auto;
+  text-align: center;
+
+  .stats-slider {
+    width: 100%;
+    max-width: 500px;
+    display: inline-block;
+  }
+
+}
+
+@media (min-width: 600px) {
+
+
+}

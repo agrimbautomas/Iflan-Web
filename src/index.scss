@@ -1,0 +1,226 @@
+@import "fonts";
+@import "variables";
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Oswald', arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  text-align: center;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+body {
+  text-align: center;
+  position: relative;
+  background: #ededeb;
+  font-family: $primary-font;
+}
+
+
+//Baserules
+h1, h2, h3, h4, h5, h6, button, span, em, p, a, label, input {
+  font-family: $primary-font;
+  color: white;
+  margin: 4rem auto;
+}
+
+h1 {
+  font-size: 3.6em;
+  font-weight: bolder;
+}
+
+img {
+  width: 45%;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+h3 {
+  font-size: 1.6em;
+  font-weight: bolder;
+}
+
+.white {
+  color: rgba(255, 255, 255, .9);
+}
+
+p {
+  font-size: 12px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+span {
+  font-weight: $semibold;
+}
+
+.smalltext {
+  font-size: 8px;
+}
+
+textarea {
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid black;
+  resize: none;
+  line-height: 18px;
+  padding: 10px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: $semibold;
+  color: $black;
+}
+
+::-webkit-input-placeholder {
+  color: $blue;
+  font-size: 13px;
+  font-weight: $light;
+}
+
+input {
+  font-size: 12px;
+  color: $black;
+}
+
+input:focus {
+  outline: unset;
+  border: 1px solid $blue;
+  box-shadow: 0 0 4px 0 rgba(63, 156, 255, .2);
+}
+
+// buttons
+button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+
+.flip-icon-x {
+  transform: scaleX(-1);
+}
+
+/*** end icons ***/
+
+.btn {
+  font-weight: $semibold;
+  font-size: 13px;
+  border-radius: 5px;
+  padding: 8px 28px;
+  transition: ease all .7s;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+// React deafult Styles
+$header-background-color: #222;
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+  margin-top: 10px;
+  padding-bottom: 3px;
+  width: 93%;
+  margin-left: 5px;
+}
+
+.reverse-ellipsis {
+  text-overflow: clip;
+  position: relative;
+  background-color: $blue ;
+  overflow: hidden;
+}
+
+.reverse-ellipsis::before {
+  content: '\02026';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  background-color: inherit;
+  padding-left: 2px;
+  margin-left: 0;
+}
+
+.reverse-ellipsis span {
+  min-width: 100%;
+  position: relative;
+  float: right;
+  overflow: visible;
+  background-color: inherit;
+  text-indent: .5em;
+}
+
+.reverse-ellipsis span::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: inherit;
+  z-index: 200;
+  left: -.5em;
+}
+
+
+.smooth-transition {
+  -webkit-transition: $smooth_transition;
+  -moz-transition: $smooth_transition;
+  -o-transition: $smooth_transition;
+  transition: $smooth_transition;
+}
+
+.transition {
+  -webkit-transition: $slow_transition;
+  -moz-transition: $slow_transition;
+  -o-transition: $slow_transition;
+  transition: $slow_transition;
+}
+
+.fast-transition {
+  -webkit-transition: $fast_transition;
+  -moz-transition: $fast_transition;
+  -o-transition: $fast_transition;
+  transition: $fast_transition;
+}

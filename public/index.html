@@ -33,7 +33,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
@@ -50,13 +50,26 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="/">
 
-<!--    <link rel="icon" type="image/png" sizes="192x192" href="icons/apple-icon.png">-->
-<!--    <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="icons/apple-icon.png">-->
+    <!--    <link rel="icon" type="image/png" sizes="192x192" href="icons/apple-icon.png">-->
+    <!--    <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="icons/apple-icon.png">-->
 
 
 </head>
 
 <body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('service-worker.js')
+	  .then(function ( registration ) {
+		// Successful registration
+		console.log('Hooray. Registration successful, scope is:', registration.scope);
+	  }).catch(function ( err ) {
+	  // Failed registration, service worker won’t be installed
+	  console.log('Whoops. Service worker registration failed, error:', error);
+	});
+  }
+</script>
 <!-- Google Tag Manager (noscript) -->
 <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2JVFLZ"

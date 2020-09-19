@@ -1,8 +1,6 @@
 import React from "react";
 import SocketsService from "../../services/socketsService"
 
-import Slider from "react-slick";
-
 import './MainStatsContainer.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -21,7 +19,7 @@ class MainStatsContainer extends React.Component {
   constructor( props ) {
 	super(props);
 
-	this.get_stats_url = ENDPOINT + "/tmp_hum_logs";
+	this.get_stats_url = ENDPOINT + "/stats";
 	SocketsService.listenForNewWindLogs(this);
 
 	this.state = {
@@ -36,10 +34,11 @@ class MainStatsContainer extends React.Component {
 	  .then(res => res.json())
 	  .then(
 		( results ) => {
-		  console.log(results);
+		  console.log(results.response.tmp_hum);
 		  this.setState({
 			isLoaded: true,
-			stats: results
+			tmp_hum: results.response.tmp_hum,
+			noise: results.response.noise,
 		  });
 		},
 		( error ) => {
@@ -68,7 +67,7 @@ class MainStatsContainer extends React.Component {
 	if (error) {
 	  return <div>Error: { error.message }</div>;
 	} else if (!isLoaded) {
-	  return <div className="spinner-container"><img src={ spinner } alt="vient-en-el-rio-spinner"/></div>;
+	  return <div className="spinner-container"><img src={ spinner } alt="iflan"/></div>;
 	} else {
 	  return this.renderLatestStatsView()
 	}
@@ -97,9 +96,7 @@ class MainStatsContainer extends React.Component {
 
 		<section className="stats-slider-container ">
 		  <div className="stats-slider">
-			<Slider { ...settings }>
-			  { this.state.stats.response.map(stats => this.getStatsSlide(stats)) }
-			</Slider>
+			{ this.getStatsSlide(this.state.tmp_hum.last) }
 		  </div>
 		</section>
 	  </div>

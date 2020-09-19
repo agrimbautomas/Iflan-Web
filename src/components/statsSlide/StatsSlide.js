@@ -1,54 +1,33 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import './StatsSlide.scss';
-
-import windArrow from '../..//assets/img/main-wind-arrow.png';
-import noWindArrow from '../..//assets/img/main-no-wind-arrow.png';
-import {RoundUnits} from "../../helpers/RoundUnits";
 
 class StatsSlide extends Component {
 
-    constructor(props) {
-        super(props);
-        let angle = this.parseDirection(this.props.direction);
-        this.state = {
-            direction: angle,
-            onshore: angle >= 0 && angle < 160,
-            speed: RoundUnits(this.props.speed),
-            hour: this.props.hour,
-            is_windy: this.props.speed >= 12,
-            style: {
-                transform: "rotate(" + (angle) + "deg)"
-            }
-        };
-    }
+  constructor( props ) {
+	super(props);
+	this.state = {
+	  temperature: this.props.temperature,
+	  humidity: this.props.humidity,
+	  datetime: this.parseDatetime(this.props.datetime)
+	};
+  }
 
-    parseDirection = (direction) => {
-        return Math.round(direction);
-    }
+  parseDatetime = ( datetime ) => {
+	let dt = new Date(datetime);
+	return dt.getUTCDay() + "/" + dt.getUTCMonth()
+	  + " - " + dt.getHours() + ":" + dt.getMinutes();
+  }
 
-    render() {
-        return (
-            <div
-                className="stats-slide">
-
-                {/* Wind Condition */}
-                <h5>{this.state.hour}hs</h5>
-
-                {/* Wind Arrow */}
-                <div className="wind-arrow">
-                    <img style={this.state.style} src={this.state.onshore ? windArrow : noWindArrow}
-                         alt='viento-en-el-rio-fleacha'/>
-                </div>
-
-                {/* Wind Speed */}
-                <h1 className={this.state.is_windy ? 'windy' : ''}>
-                    <span className="wind-speed">{this.state.speed}</span>
-                    <span className="units">kts</span>
-                </h1>
-
-            </div>
-        );
-    }
+  render() {
+	return (
+	  <div
+		className="stats-slide">
+		<h5>{ this.state.temperature }</h5>
+		<h6>{ this.state.humidity }</h6>
+		<h6>{ this.state.datetime }</h6>
+	  </div>
+	);
+  }
 }
 
 export default StatsSlide;

@@ -22,8 +22,8 @@ class StatsSlide extends Component {
 	return (
 	  <div
 		className="stats-slide">
-		<h5>{ this.state.temperature }</h5>
-		<h6>{ this.state.humidity }</h6>
+		<h3>{ this.state.temperature }°</h3>
+		<h4>{ this.state.humidity }%</h4>
 		<h6>{ this.state.datetime }</h6>
 	  </div>
 	);

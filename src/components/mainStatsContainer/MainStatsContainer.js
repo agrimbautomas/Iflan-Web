@@ -11,7 +11,7 @@ import StatsSlide from "../statsSlide/StatsSlide";
 
 // const ENDPOINT = "http://localhost:3000/1";
 
-const ENDPOINT = "http://api.iflan.house/1";
+const ENDPOINT = "https://api.iflan.house/1";
 
 
 class MainStatsContainer extends React.Component {

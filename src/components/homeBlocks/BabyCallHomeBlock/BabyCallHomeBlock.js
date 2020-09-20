@@ -5,7 +5,7 @@ import { STATS_URL } from "../../../config/urls";
 import Spinner from "../../Spinner/Spinner";
 import { ParseDatetime } from "../../../helpers/ParseDatetime";
 
-class SoundsHomeBlock extends Component {
+class BabyCallHomeBlock extends Component {
 
   constructor( props ) {
 	super(props);
@@ -15,27 +15,27 @@ class SoundsHomeBlock extends Component {
 	this.state = {
 	  isLoaded: false,
 	  datetime: null,
-	  avg_per_day: null,
+	  humidity: null,
 	};
   }
 
 
-  setSoundsHomeBlockState = ( stats_response ) => {
-	let noise = stats_response.noise;
+  setBabyCallHomeBlockState = ( tmp_hum_response ) => {
+	let tmp_hum = tmp_hum_response.tmp_hum.last;
 	this.setState({
 	  isLoaded: true,
-	  datetime: noise.last.created_at,
-	  avg_per_day: noise.avg_per_day
+	  datetime: tmp_hum.created_at,
+	  temperature: tmp_hum.temperature
 	});
   };
 
-  socketsCallback = ( data ) => this.setSoundsHomeBlockState(data.response);
+  socketsCallback = ( data ) => this.setBabyCallHomeBlockState(data.response);
 
   componentDidMount = () => {
 	fetch(STATS_URL)
 	  .then(res => res.json())
 	  .then(
-		( results ) => this.setSoundsHomeBlockState(results.response),
+		( results ) => this.setBabyCallHomeBlockState(results.response),
 		( error ) => this.setState({ isLoaded: true, error })
 	  );
   };
@@ -46,16 +46,11 @@ class SoundsHomeBlock extends Component {
 	return (
 	  <div className="home-block">
 		<div className="icon">
-		  <i className="far fa-sad-cry"></i>
+		  <i className="fas fa-camera-retro"></i>
 		</div>
-		<h2>Llantos</h2>
+		<h2>BabyCall</h2>
 		<div>
-		  Promedio ultima semana:
-		  <span> { this.state.avg_per_day }</span>
-		</div>
-		<div>
-		  Último registro:
-		  <span> { ParseDatetime(this.state.datetime) }</span>
+		  Disponible solo para red local
 		</div>
 	  </div>
 	);
@@ -63,4 +58,4 @@ class SoundsHomeBlock extends Component {
 }
 
 
-export default SoundsHomeBlock;
+export default BabyCallHomeBlock;

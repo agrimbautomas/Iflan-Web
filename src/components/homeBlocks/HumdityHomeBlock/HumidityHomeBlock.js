@@ -54,7 +54,7 @@ class HumidityHomeBlock extends Component {
 		  <span> { this.state.humidity }%</span>
 		</div>
 		<div>
-		  Ultimo registro:
+		  Último registro:
 		  <span> { ParseDatetime(this.state.datetime) }</span>
 		</div>
 	  </div>

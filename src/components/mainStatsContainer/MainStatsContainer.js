@@ -2,15 +2,10 @@ import React from "react";
 import SocketsService from "../../services/socketsService"
 
 import './MainStatsContainer.scss';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 
 import spinner from '../../assets/img/spinner.gif';
-import StatsSlide from "../statsSlide/StatsSlide";
 
 // const ENDPOINT = "http://localhost:3000/1";
-
 const ENDPOINT = "https://api.iflan.house/1";
 
 
@@ -90,15 +85,17 @@ class MainStatsContainer extends React.Component {
 	};
 
 	return (
+	  <div>
 
-	  <div className="stats-container">
-		{/*{this.getLatestStatsView(this.state.stats.current)}*/ }
+		<div className="stats-container">
 
-		<section className="stats-slider-container ">
-		  <div className="stats-slider">
-			{ this.getStatsSlide(this.state.tmp_hum.last) }
-		  </div>
-		</section>
+
+		  <section className="stats-slider-container ">
+			<div className="stats-slider">
+			  {/*{ this.getTmpHum(this.state.tmp_hum.last) }*/}
+			</div>
+		  </section>
+		</div>
 	  </div>
 	)
   }
@@ -111,31 +108,6 @@ class MainStatsContainer extends React.Component {
 	)
   }
 
-  // Component Views
-  // getLatestStatsView = (stats) => {
-  //     return (
-  //         <LatestStats
-  //             key={stats.id}
-  //             id={stats.id}
-  //             speed={stats.speed}
-  //             gust={stats.gust}
-  //             hour={stats.hour}
-  //             direction={stats.direction}
-  //         />
-  //     );
-  // }
-
-  getStatsSlide = ( stats ) => {
-	return (
-	  <StatsSlide
-		key={ stats.id }
-		id={ stats.id }
-		temperature={ stats.temperature }
-		humidity={ stats.humidity }
-		datetime={ stats.created_at }
-	  />
-	);
-  }
 
 }
 

@@ -1,20 +1,14 @@
 import React from "react";
 import SocketsService from "../../services/socketsService"
-
 import './MainStatsContainer.scss';
-
 import spinner from '../../assets/img/spinner.gif';
-
-// const ENDPOINT = "http://localhost:3000/1";
-const ENDPOINT = "https://api.iflan.house/1";
-
+import { STATS_URL } from "../../config/urls"
 
 class MainStatsContainer extends React.Component {
 
   constructor( props ) {
 	super(props);
 
-	this.get_stats_url = ENDPOINT + "/stats";
 	SocketsService.listenForNewWindLogs(this);
 
 	this.state = {
@@ -25,7 +19,7 @@ class MainStatsContainer extends React.Component {
   }
 
   componentDidMount = () => {
-	fetch(this.get_stats_url)
+	fetch(STATS_URL)
 	  .then(res => res.json())
 	  .then(
 		( results ) => {
@@ -92,7 +86,7 @@ class MainStatsContainer extends React.Component {
 
 		  <section className="stats-slider-container ">
 			<div className="stats-slider">
-			  {/*{ this.getTmpHum(this.state.tmp_hum.last) }*/}
+			  {/*{ this.getTmpHum(this.state.tmp_hum.last) }*/ }
 			</div>
 		  </section>
 		</div>

@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import SocketsService from "../../services/socketsService";
 import TmpHum from "../tmpHum/TmpHum";
 import spinner from "../../assets/img/spinner.gif";
-
-// const ENDPOINT = "http://localhost:3000/1";
-const ENDPOINT = "https://api.iflan.house/1";
+import './Header.scss';
+import { STATS_URL } from "../../config/urls"
 
 class Header extends Component {
 
   constructor( props ) {
 	super(props);
 
-	this.get_stats_url = ENDPOINT + "/stats";
 	SocketsService.listenForNewWindLogs(this);
 
 	this.state = {
@@ -22,15 +20,14 @@ class Header extends Component {
   }
 
   componentDidMount = () => {
-	fetch(this.get_stats_url)
+	fetch(STATS_URL)
 	  .then(res => res.json())
 	  .then(
 		( results ) => {
-		  console.log(results.response.tmp_hum);
+
 		  this.setState({
 			isLoaded: true,
 			tmp_hum: results.response.tmp_hum,
-			noise: results.response.noise,
 		  });
 		},
 		( error ) => {
@@ -43,13 +40,6 @@ class Header extends Component {
   }
 
 
-  renderLatestStatsView = () => {
-	if (this.state.stats)
-	  return this.displayStats();
-	else
-	  return this.displayPlaceholder();
-  }
-
   render() {
 	const { error, isLoaded } = this.state;
 	if (error) {
@@ -57,19 +47,24 @@ class Header extends Component {
 	} else if (!isLoaded) {
 	  return <div className="spinner-container"><img src={ spinner } alt="iflan"/></div>;
 	} else {
-	  return this.renderLatestStatsView()
+	  return this.renderStats()
 	}
   }
 
+  renderStats = () => {
+	if (this.state.stats)
+	  return this.displayStats();
+	else
+	  return this.displayPlaceholder();
+  }
 
   displayStats = () => {
 	return (
 	  <div>
-
 		<div className="stats-container">
 		  <section className="stats-slider-container ">
 			<div className="stats-slider">
-			  <TmpHum props={this.state.tmp_hum.last} />
+			  <TmpHum props={ this.state.tmp_hum.last }/>
 			</div>
 		  </section>
 		</div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './TmpHum.scss';
 import SocketsService from "../../services/socketsService";
 import { STATS_URL } from "../../config/urls";
-import spinner from "../../assets/img/spinner.gif";
+import Spinner from "../spinner/Spinner";
 
 class TmpHum extends Component {
 
@@ -17,7 +17,6 @@ class TmpHum extends Component {
 	  humidity: null,
 	};
   }
-
 
   parseDatetime = ( datetime ) => {
 	let dt = new Date(datetime);
@@ -56,10 +55,7 @@ class TmpHum extends Component {
 
   render() {
 	const { isLoaded } = this.state;
-	return isLoaded ? this.displayStats() : <div className="spinner-container"><img src={ spinner } alt="iflan"/></div>;
-  }
-
-  displayStats = () => {
+	if (!isLoaded) return <Spinner/>;
 	return (
 	  <div className="stats">
 		<div className="datetime">{ this.parseDatetime(this.state.datetime) }</div>

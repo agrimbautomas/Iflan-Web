@@ -58,7 +58,7 @@ class TmpHum extends Component {
 	if (!isLoaded) return <Spinner/>;
 	return (
 	  <div className="stats">
-		<div className="datetime">{ this.parseDatetime(this.state.datetime) }</div>
+		<div className="datetime">Ult: { this.parseDatetime(this.state.datetime) }</div>
 		<div>{ this.state.temperature }°</div>
 		<div>{ this.state.humidity }%</div>
 	  </div>

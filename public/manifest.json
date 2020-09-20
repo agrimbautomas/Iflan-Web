@@ -6,8 +6,8 @@
   "start_url": "/",
   "display": "fullscreen",
   "orientation": "portrait",
-  "theme_color": "#183c99",
-  "background_color": "#000000",
+  "theme_color": "#f3f3f3",
+  "background_color": "#f3f3f3",
   "icons": [
     {
       "src": "icons/android-icon-36x36.png",

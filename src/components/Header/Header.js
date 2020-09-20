@@ -1,5 +1,5 @@
 import React from "react";
-import TmpHum from "../tmpHum/TmpHum";
+import TmpHum from "../TmpHum/TmpHum";
 import './Header.scss';
 
 const Header = () => (

@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker'
-import MainStatsContainer from './components/mainStatsContainer/MainStatsContainer';
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
+import HomeBlocksContainer from "./components/HomeBlocksContainer/HomeBlocksContainer";
 
 
 class MainGrid extends React.Component {
@@ -11,7 +11,7 @@ class MainGrid extends React.Component {
 	return (
 	  <div className="grid">
 		<Header/>
-		{/*<MainStatsContainer/>*/}
+		<HomeBlocksContainer/>
 	  </div>
 	)
   }

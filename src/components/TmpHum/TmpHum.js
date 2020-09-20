@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './TmpHum.scss';
 import SocketsService from "../../services/socketsService";
 import { STATS_URL } from "../../config/urls";
-import Spinner from "../spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 
 class TmpHum extends Component {
 

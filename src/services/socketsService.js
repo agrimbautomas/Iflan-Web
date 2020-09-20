@@ -7,7 +7,7 @@ class SocketsService {
     static CHANNEL_NAME = 'stats-channel';
     static TOPIC_NAME = 'stats-changed';
 
-    static listenForNewWindLogs = (listener) => {
+    static listenForStatsLogs = (listener) => {
 
         Pusher.logToConsole = true;
         Pusher.log = (msg) => {

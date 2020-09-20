@@ -5,7 +5,7 @@ import { STATS_URL } from "../../../config/urls";
 import Spinner from "../../Spinner/Spinner";
 import { ParseDatetime } from "../../../helpers/ParseDatetime";
 
-class SoundsHomeBlock extends Component {
+class HumidityHomeBlock extends Component {
 
   constructor( props ) {
 	super(props);
@@ -20,7 +20,7 @@ class SoundsHomeBlock extends Component {
   }
 
 
-  setSoundsHomeBlockState = ( stats_response ) => {
+  setHumidityHomeBlockState = ( stats_response ) => {
 	let noise = stats_response.noise;
 	this.setState({
 	  isLoaded: true,
@@ -29,13 +29,13 @@ class SoundsHomeBlock extends Component {
 	});
   };
 
-  socketsCallback = ( data ) => this.setSoundsHomeBlockState(data.response);
+  socketsCallback = ( data ) => this.setHumidityHomeBlockState(data.response);
 
   componentDidMount = () => {
 	fetch(STATS_URL)
 	  .then(res => res.json())
 	  .then(
-		( results ) => this.setSoundsHomeBlockState(results.response),
+		( results ) => this.setHumidityHomeBlockState(results.response),
 		( error ) => this.setState({ isLoaded: true, error })
 	  );
   };
@@ -63,4 +63,4 @@ class SoundsHomeBlock extends Component {
 }
 
 
-export default SoundsHomeBlock;
+export default HumidityHomeBlock;

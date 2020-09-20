@@ -1,25 +1,73 @@
-import React from "react";
+import React, { Component } from "react";
 import './TmpHum.scss';
+import SocketsService from "../../services/socketsService";
+import { STATS_URL } from "../../config/urls";
+import spinner from "../../assets/img/spinner.gif";
 
-const TmpHum = ( { props } ) => {
+class TmpHum extends Component {
 
-  const temperature = props.temperature;
-  const humidity = props.humidity;
-  const datetime = props.created_at;
+  constructor( props ) {
+	super(props);
 
-  const parseDatetime = ( datetime ) => {
+	SocketsService.listenForNewWindLogs(this);
+
+	this.state = {
+	  temperature: null,
+	  datetime: null,
+	  humidity: null,
+	};
+  }
+
+
+  parseDatetime = ( datetime ) => {
 	let dt = new Date(datetime);
 	let options = { hour: 'numeric', month: 'numeric', day: 'numeric', minute: 'numeric' };
 	return dt.toLocaleString('es-AR', options)
   };
 
-  return (
-	<div className="stats">
-	  <div className="datetime">{ parseDatetime(datetime) }</div>
-	  <div>{ temperature }°</div>
-	  <div>{ humidity }%</div>
-	</div>
-  );
+  setTmpHumState = ( tmp_hum_response ) => {
+	let tmp_hum = tmp_hum_response.tmp_hum.last;
+	this.setState({
+	  isLoaded: true,
+	  temperature: tmp_hum.temperature,
+	  humidity: tmp_hum.humidity,
+	  datetime: tmp_hum.created_at,
+	});
+  }
+
+  socketsCallback = ( data ) => this.setTmpHumState(data.response);
+
+  componentDidMount = () => {
+	fetch(STATS_URL)
+	  .then(res => res.json())
+	  .then(
+		( results ) => {
+		  let tmp_hum = results.response.tmp_hum.last;
+		  this.setTmpHumState(results.response);
+		},
+		( error ) => {
+		  this.setState({
+			isLoaded: true,
+			error
+		  });
+		}
+	  )
+  }
+
+  render() {
+	const { isLoaded } = this.state;
+	return isLoaded ? this.displayStats() : <div className="spinner-container"><img src={ spinner } alt="iflan"/></div>;
+  }
+
+  displayStats = () => {
+	return (
+	  <div className="stats">
+		<div className="datetime">{ this.parseDatetime(this.state.datetime) }</div>
+		<div>{ this.state.temperature }°</div>
+		<div>{ this.state.humidity }%</div>
+	  </div>
+	);
+  }
 }
 
 

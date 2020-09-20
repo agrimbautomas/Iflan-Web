@@ -11,7 +11,7 @@ class SocketsService {
 
         Pusher.logToConsole = true;
         Pusher.log = (msg) => {
-            //console.log(msg);
+            // console.log(msg);
         };
 
         const socket = new Pusher(this.PUSHER_KEY, {

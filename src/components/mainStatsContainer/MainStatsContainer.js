@@ -41,6 +41,7 @@ class MainStatsContainer extends React.Component {
 
 
   socketsCallback = ( data ) => {
+    console.log('socketsCallback', data);
 	this.updateStats(data.stats);
   }
 
@@ -71,19 +72,9 @@ class MainStatsContainer extends React.Component {
   }
 
   displayStats = () => {
-	let settings = {
-	  slidesToShow: 5,
-	  infinite: false,
-	  slidesToScroll: 1
-
-	};
-
 	return (
 	  <div>
-
 		<div className="stats-container">
-
-
 		  <section className="stats-slider-container ">
 			<div className="stats-slider">
 			  {/*{ this.getTmpHum(this.state.tmp_hum.last) }*/ }

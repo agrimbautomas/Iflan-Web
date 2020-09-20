@@ -3,7 +3,6 @@ import './TmpHum.scss';
 import SocketsService from "../../services/socketsService";
 import { STATS_URL } from "../../config/urls";
 import Spinner from "../Spinner/Spinner";
-import { ParseDatetime } from "../../helpers/ParseDatetime";
 
 class TmpHum extends Component {
 
@@ -13,6 +12,7 @@ class TmpHum extends Component {
 	SocketsService.listenForStatsLogs(this);
 
 	this.state = {
+	  isLoaded: false,
 	  temperature: null,
 	  datetime: null,
 	  humidity: null,
@@ -46,7 +46,6 @@ class TmpHum extends Component {
 	if (!isLoaded) return <Spinner/>;
 	return (
 	  <div className="stats">
-		<div className="datetime">Ult: { ParseDatetime(this.state.datetime) }</div>
 		<div>{ this.state.temperature }°</div>
 		<div>{ this.state.humidity }%</div>
 	  </div>

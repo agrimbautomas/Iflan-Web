@@ -5,7 +5,7 @@ import { STATS_URL } from "../../../config/urls";
 import Spinner from "../../Spinner/Spinner";
 import { ParseDatetime } from "../../../helpers/ParseDatetime";
 
-class HumidityHomeBlock extends Component {
+class TemperatureHomeBlock extends Component {
 
   constructor( props ) {
 	super(props);
@@ -20,22 +20,22 @@ class HumidityHomeBlock extends Component {
   }
 
 
-  setHumidityHomeBlockState = ( tmp_hum_response ) => {
+  setTemperatureHomeBlockState = ( tmp_hum_response ) => {
 	let tmp_hum = tmp_hum_response.tmp_hum.last;
 	this.setState({
 	  isLoaded: true,
 	  datetime: tmp_hum.created_at,
-	  humidity: tmp_hum.humidity
+	  temperature: tmp_hum.temperature
 	});
   };
 
-  socketsCallback = ( data ) => this.setHumidityHomeBlockState(data.response);
+  socketsCallback = ( data ) => this.setTemperatureHomeBlockState(data.response);
 
   componentDidMount = () => {
 	fetch(STATS_URL)
 	  .then(res => res.json())
 	  .then(
-		( results ) => this.setHumidityHomeBlockState(results.response),
+		( results ) => this.setTemperatureHomeBlockState(results.response),
 		( error ) => this.setState({ isLoaded: true, error })
 	  );
   };
@@ -46,12 +46,12 @@ class HumidityHomeBlock extends Component {
 	return (
 	  <div className="home-block">
 		<div className="icon">
-		  <i className="fas fa-tint"></i>
+		  <i className="fas fa-temperature-high"></i>
 		</div>
-		<h2>Humedad</h2>
+		<h2>Temperatura</h2>
 		<div>
 		  Actual:
-		  <span> { this.state.humidity }%</span>
+		  <span> { this.state.temperature }°</span>
 		</div>
 		<div>
 		  Ultimo registro:
@@ -63,4 +63,4 @@ class HumidityHomeBlock extends Component {
 }
 
 
-export default HumidityHomeBlock;
+export default TemperatureHomeBlock;

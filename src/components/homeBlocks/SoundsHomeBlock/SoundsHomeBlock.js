@@ -13,9 +13,9 @@ class SoundsHomeBlock extends Component {
 	SocketsService.listenForStatsLogs(this);
 
 	this.state = {
-	  temperature: null,
+	  isLoaded: false,
 	  datetime: null,
-	  humidity: null,
+	  avg_per_day: null,
 	};
   }
 
@@ -50,12 +50,12 @@ class SoundsHomeBlock extends Component {
 		</div>
 		<h2>Llantos</h2>
 		<div>
-		  Ultimo registro:
-		  <span> { ParseDatetime(this.state.datetime) }</span>
-		</div>
-		<div>
 		  Promedio por día:
 		  <span> { this.state.avg_per_day }</span>
+		</div>
+		<div>
+		  Ultimo registro:
+		  <span> { ParseDatetime(this.state.datetime) }</span>
 		</div>
 	  </div>
 	);

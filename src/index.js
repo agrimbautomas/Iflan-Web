@@ -6,19 +6,18 @@ import MainStatsContainer from './components/mainStatsContainer/MainStatsContain
 
 
 class MainGrid extends React.Component {
-
-    render() {
-        return (
-            <div className="grid">
-                <MainStatsContainer/>
-            </div>
-        )
-    }
+  render() {
+	return (
+	  <div className="grid">
+		<MainStatsContainer/>
+	  </div>
+	)
+  }
 }
 
 ReactDOM.render(
-    <MainGrid/>,
-    document.getElementById('root')
+  <MainGrid/>,
+  document.getElementById('root')
 );
 
 serviceWorker.register();

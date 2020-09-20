@@ -1,5 +1,7 @@
 @import "fonts";
 
+// Referencias
+//https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/15/49/32/1549322a-aafb-6787-fa86-6267e801728c/mzl.wflyufas.png/643x0w.jpg
 // Variables
 
 $fast_transition: all 0.2s ease-in-out;
@@ -7,7 +9,8 @@ $smooth_transition: all 0.3s ease-in-out;
 $slow_transition: all .4s ease-in-out;
 
 /* Font Variations */
-$primary-font: 'Product Sans', Helvetica, Arial, sans-serif;
+$primary-font: "Roboto", sans-serif;
+$secondary-font: 'Kufam', cursive;
 $regular: 400;
 $light: 300;
 $bold: 700;

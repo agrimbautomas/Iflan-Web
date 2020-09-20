@@ -225,3 +225,8 @@ button {
   -o-transition: $fast_transition;
   transition: $fast_transition;
 }
+
+.grid {
+  display: grid;
+  width: 100%;
+}

@@ -1,15 +1,13 @@
 import React from "react";
 import './HomeBlocksContainer.scss';
+import SoundsHomeBlock from "../homeBlocks/SoundsHomeBlock/SoundsHomeBlock";
 
 const HomeBlocksContainer = () => (
-  <div>
-	<div className="stats-container">
-	  <section className="stats-slider-container ">
-		<div className="stats-slider">
-		  {/*{ this.getTmpHum(this.state.tmp_hum.last) }*/ }
-		</div>
-	  </section>
-	</div>
+  <div className="home-blocks-container">
+	<SoundsHomeBlock/>
+	<SoundsHomeBlock/>
+	<SoundsHomeBlock/>
+	<SoundsHomeBlock/>
   </div>
 );
 

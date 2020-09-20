@@ -11,7 +11,7 @@ class MainGrid extends React.Component {
 	return (
 	  <div className="grid">
 		<Header/>
-		<MainStatsContainer/>
+		{/*<MainStatsContainer/>*/}
 	  </div>
 	)
   }

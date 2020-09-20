@@ -60,15 +60,14 @@ class Header extends Component {
 
   displayStats = () => {
 	return (
-	  <div>
-		<div className="stats-container">
-		  <section className="stats-slider-container ">
-			<div className="stats-slider">
-			  <TmpHum props={ this.state.tmp_hum.last }/>
-			</div>
-		  </section>
+	  <header>
+		<div className="left-block">
+		  <h1>iFlan</h1>
 		</div>
-	  </div>
+		<div className="right-block">
+		  <TmpHum props={ this.state.tmp_hum.last }/>
+		</div>
+	  </header>
 	)
   }
 

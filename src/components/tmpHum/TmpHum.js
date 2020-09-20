@@ -14,11 +14,10 @@ const TmpHum = ( { props } ) => {
   };
 
   return (
-	<div
-	  className="stats">
+	<div className="stats">
+	  <div className="datetime">{ parseDatetime(datetime) }</div>
 	  <div>{ temperature }°</div>
 	  <div>{ humidity }%</div>
-	  <div>{ parseDatetime(datetime) }</div>
 	</div>
   );
 }

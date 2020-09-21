@@ -1,0 +1,17 @@
+@import "../../variables";
+
+.install-button{
+  background: #de5a4e;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+
+  i{
+    font-size: 1.2rem;
+    color: white;
+  }
+}

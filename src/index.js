@@ -4,7 +4,7 @@ import './index.scss';
 import * as serviceWorker from './serviceWorker'
 import Header from "./components/Header/Header";
 import HomeBlocksContainer from "./components/HomeBlocksContainer/HomeBlocksContainer";
-
+import InstallButton from "./components/InstallButton/InstallButton";
 
 
 class MainGrid extends React.Component {
@@ -13,6 +13,7 @@ class MainGrid extends React.Component {
 	  <div className="grid">
 		<Header/>
 		<HomeBlocksContainer/>
+		<InstallButton/>
 	  </div>
 	)
   }

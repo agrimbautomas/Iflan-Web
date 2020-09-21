@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import './InstallButton.scss';
 
 
-const InstallPWA = () => {
+const InstallButton = () => {
   const [supportsPWA, setSupportsPWA] = useState(false);
   const [promptInstall, setPromptInstall] = useState(null);
 
@@ -25,20 +26,21 @@ const InstallPWA = () => {
 	promptInstall.prompt();
   };
   if (!supportsPWA) {
+	console.log("Does not support PWA");
 	return null;
   }
   return (
 	<button
-	  className="link-button"
+	  className="install-button"
 	  id="setup_button"
 	  aria-label="Install app"
 	  title="Install app"
 	  onClick={onClick}
 	>
-	  Install
+	  <i className="fas fa-download"></i>
 	</button>
   );
 };
 
-export default InstallPWA;
+export default InstallButton;
 

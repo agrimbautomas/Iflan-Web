@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import HomeBlocksContainer from "./components/HomeBlocksContainer/HomeBlocksContainer";
 
 
+
 class MainGrid extends React.Component {
   render() {
 	return (
@@ -23,4 +24,7 @@ ReactDOM.render(
 );
 
 serviceWorker.register();
+
+
+
 

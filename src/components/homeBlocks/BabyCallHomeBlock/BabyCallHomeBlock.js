@@ -3,8 +3,6 @@ import '../HomeBlocks.scss';
 import SocketsService from "../../../services/socketsService";
 import { STATS_URL } from "../../../config/urls";
 import Spinner from "../../Spinner/Spinner";
-import { ParseDatetime } from "../../../helpers/ParseDatetime";
-
 class BabyCallHomeBlock extends Component {
 
   constructor( props ) {

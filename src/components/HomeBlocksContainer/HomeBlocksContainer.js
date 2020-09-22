@@ -7,10 +7,12 @@ import BabyCallHomeBlock from "../homeBlocks/BabyCallHomeBlock/BabyCallHomeBlock
 
 const HomeBlocksContainer = () => (
   <div className="home-blocks-container">
-	<BabyCallHomeBlock/>
-	<SoundsHomeBlock/>
-	<TemperatureHomeBlock/>
-	<HumidityHomeBlock/>
+	<div className="grid">
+	  <BabyCallHomeBlock/>
+	  <SoundsHomeBlock/>
+	  <TemperatureHomeBlock/>
+	  <HumidityHomeBlock/>
+	</div>
   </div>
 );
 

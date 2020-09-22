@@ -231,4 +231,7 @@ button {
 .grid {
   display: grid;
   width: 100%;
+  max-width: 900px;
+  text-align: center;
+  margin: auto;
 }

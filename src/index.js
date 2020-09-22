@@ -10,7 +10,7 @@ import InstallButton from "./components/InstallButton/InstallButton";
 class MainGrid extends React.Component {
   render() {
 	return (
-	  <div className="grid">
+	  <div>
 		<Header/>
 		<HomeBlocksContainer/>
 		<InstallButton/>

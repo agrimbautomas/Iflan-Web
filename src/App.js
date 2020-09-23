@@ -4,11 +4,12 @@ import HomeBlocksContainer from "./components/HomeBlocksContainer/HomeBlocksCont
 import InstallButton from "./components/InstallButton/InstallButton";
 
 const App = () => (
-  <div>
+  <>
 	<Header/>
 	<HomeBlocksContainer/>
 	<InstallButton/>
-  </div>
+  </>
+
 );
 
 export default App;

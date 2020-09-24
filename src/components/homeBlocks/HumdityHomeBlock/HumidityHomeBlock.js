@@ -45,7 +45,7 @@ class HumidityHomeBlock extends Component {
 	const { isLoaded } = this.state;
 	if (!isLoaded) return <Spinner/>;
 	return (
-	  <Link to="/hum">
+	  <Link to="/">
 		<div className="home-block">
 		  <div className="icon">
 			<i className="fas fa-tint"></i>

@@ -11,14 +11,6 @@ import {
 } from "react-router-dom";
 
 
-const videoJsOptions = {
-  autoplay: true,
-  controls: true,
-  sources: [{
-	src: 'http://192.168.0.3/hls/index.m3u8',
-  }]
-}
-
 const HomeBlocksContainer = () => (
   <div className="home-blocks-container">
 	<div className="grid">
@@ -30,7 +22,7 @@ const HomeBlocksContainer = () => (
 
 		<Switch>
 		  <Route path="/baby">
-			<BabyCall {...videoJsOptions} />
+			<BabyCall/>
 		  </Route>
 		  <Route path="/sound">
 			<SoundsHomeBlock/>

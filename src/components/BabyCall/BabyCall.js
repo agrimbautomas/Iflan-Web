@@ -7,27 +7,37 @@ class BabyCall extends Component {
 
 
   componentDidMount() {
-	this.player = videojs(this.videoNode, this.props)
+    // https://docs.videojs.com/docs/api/
+	let videoJsOptions = {
+	  autoplay: true,
+	  controls: false,
+	  textTrackSettings: false,
+	  controlBar: false,
+	  bigPlayButton: false,
+	  loadingSpinner: false,
+	  errorDisplay: false,
+	  sources: [{
+		src: 'http://192.168.0.3/hls/index.m3u8',
+	  }]
+	}
+	this.player = videojs(this.videoNode, videoJsOptions)
   }
 
   componentWillUnmount() {
-	if (this.player) {
-	  this.player.dispose()
-	}
-  }
+	if (this.player)
+	  this.player.play()
 
+  }
 
   videoStreaming = () => (
 	<div className='video-frame'>
-	  <div data-vjs-player style={ {
-		width: 960, height: 540
-	  } }>
-		<video ref={ ( node ) => {
+	  <div data-vjs-player style={ { width: 900 } }>
+		<video className="video-js" ref={ ( node ) => {
 		  this.videoNode = node;
-		} } className="video-js"/>
+		} }/>
 	  </div>
 	</div>
-  )
+  );
 
   render() {
 	return (

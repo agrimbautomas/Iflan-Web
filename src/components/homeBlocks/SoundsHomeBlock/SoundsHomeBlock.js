@@ -45,7 +45,7 @@ class SoundsHomeBlock extends Component {
 	const { isLoaded } = this.state;
 	if (!isLoaded) return <Spinner/>;
 	return (
-	  <Link to="/sound">
+	  <Link to="/">
 		<div className="home-block">
 		  <div className="icon">
 			<i className="far fa-sad-cry"></i>

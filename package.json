@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@videojs/http-streaming": "^1.13.4",
     "actions": "^1.3.0",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.4.0",
@@ -26,7 +27,8 @@
     "redux-persist": "^5.10.0",
     "redux-persist-transform-immutable": "^5.0.0",
     "redux-thunk": "^2.3.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "videojs": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

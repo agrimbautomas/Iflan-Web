@@ -4,6 +4,7 @@ import SocketsService from "../../../services/socketsService";
 import { STATS_URL } from "../../../config/urls";
 import Spinner from "../../Spinner/Spinner";
 import { ParseDatetime } from "../../../helpers/ParseDatetime";
+import { Link } from "react-router-dom";
 
 class SoundsHomeBlock extends Component {
 
@@ -44,20 +45,22 @@ class SoundsHomeBlock extends Component {
 	const { isLoaded } = this.state;
 	if (!isLoaded) return <Spinner/>;
 	return (
-	  <div className="home-block">
-		<div className="icon">
-		  <i className="far fa-sad-cry"></i>
+	  <Link to="/sound">
+		<div className="home-block">
+		  <div className="icon">
+			<i className="far fa-sad-cry"></i>
+		  </div>
+		  <h2>Llantos</h2>
+		  <div>
+			Promedio ultima semana:
+			<span> { this.state.avg_per_day }</span>
+		  </div>
+		  <div>
+			Último registro:
+			<span> { ParseDatetime(this.state.datetime) }</span>
+		  </div>
 		</div>
-		<h2>Llantos</h2>
-		<div>
-		  Promedio ultima semana:
-		  <span> { this.state.avg_per_day }</span>
-		</div>
-		<div>
-		  Último registro:
-		  <span> { ParseDatetime(this.state.datetime) }</span>
-		</div>
-	  </div>
+	  </Link>
 	);
   }
 }

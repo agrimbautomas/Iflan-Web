@@ -3,6 +3,8 @@ import '../HomeBlocks.scss';
 import SocketsService from "../../../services/socketsService";
 import { STATS_URL } from "../../../config/urls";
 import Spinner from "../../Spinner/Spinner";
+import { Link } from "react-router-dom";
+
 class BabyCallHomeBlock extends Component {
 
   constructor( props ) {
@@ -42,15 +44,17 @@ class BabyCallHomeBlock extends Component {
 	const { isLoaded } = this.state;
 	if (!isLoaded) return <Spinner/>;
 	return (
-	  <div className="home-block">
-		<div className="icon">
-		  <i className="fas fa-camera-retro"></i>
+	  <Link to="/baby">
+		<div className="home-block">
+		  <div className="icon">
+			<i className="fas fa-camera-retro"></i>
+		  </div>
+		  <h2>BabyCall</h2>
+		  <div>
+			Disponible solo para red local
+		  </div>
 		</div>
-		<h2>BabyCall</h2>
-		<div>
-		  Disponible solo para red local
-		</div>
-	  </div>
+	  </Link>
 	);
   }
 }

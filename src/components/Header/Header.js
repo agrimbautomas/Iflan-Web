@@ -6,7 +6,9 @@ const Header = () => (
   <header>
 	<div className="grid">
 	  <div className="left-block">
-		<h1>iFlan</h1>
+		<a href="/">
+		  <h1>iFlan</h1>
+		</a>
 	  </div>
 	  <div className="right-block">
 		<TmpHum/>

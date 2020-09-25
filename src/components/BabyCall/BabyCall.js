@@ -7,20 +7,20 @@ class BabyCall extends Component {
 
 
   componentDidMount() {
-    // https://docs.videojs.com/docs/api/
-	let videoJsOptions = {
-	  autoplay: true,
-	  controls: false,
-	  textTrackSettings: false,
-	  controlBar: false,
-	  bigPlayButton: false,
-	  loadingSpinner: false,
-	  errorDisplay: false,
-	  sources: [{
-		src: 'http://192.168.0.3/hls/index.m3u8',
-	  }]
-	}
-	this.player = videojs(this.videoNode, videoJsOptions)
+	// https://docs.videojs.com/docs/api/
+	// let videoJsOptions = {
+	//   autoplay: true,
+	//   controls: false,
+	//   textTrackSettings: false,
+	//   controlBar: false,
+	//   bigPlayButton: false,
+	//   loadingSpinner: false,
+	//   errorDisplay: false,
+	//   sources: [{
+	// 	src: 'http://192.168.0.3/hls/index.m3u8',
+	//   }]
+	// }
+	// this.player = videojs(this.videoNode, videoJsOptions)
   }
 
   componentWillUnmount() {
@@ -29,15 +29,15 @@ class BabyCall extends Component {
 
   }
 
-  videoStreaming = () => (
-	<div className='video-frame'>
-	  <div data-vjs-player style={ { width: 900 } }>
-		<video className="video-js" ref={ ( node ) => {
-		  this.videoNode = node;
-		} }/>
-	  </div>
-	</div>
-  );
+  // videoStreaming = () => (
+	// <div className='video-frame'>
+	//   <div data-vjs-player style={ { width: 900 } }>
+	// 	<video className="video-js" ref={ ( node ) => {
+	// 	  this.videoNode = node;
+	// 	} }/>
+	//   </div>
+	// </div>
+  // );
 
   render() {
 	return (
@@ -46,10 +46,11 @@ class BabyCall extends Component {
 		  <div className="header">
 			<h2>BabyCall</h2>
 		  </div>
+		  <img src="http://192.168.0.3/video_feed"/>
 		  <Link to='/' className='close'>
 			<i className="fas fa-times"></i>
 		  </Link>
-		  { this.videoStreaming() }
+		  {/*{ this.videoStreaming() }*/}
 		</div>
 	  </div>
 	);

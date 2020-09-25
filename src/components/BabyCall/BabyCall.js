@@ -15,7 +15,9 @@ class BabyCall extends Component {
 		  <audio controls autoPlay={true}>
 			<source src={ "http://" + RASPI1_IP + ":8888/audio.mp3" } type="audio/mp3"/>
 		  </audio>
+		  <h3>Cuna</h3>
 		  <img src={ "http://" + RASPI1_IP + "/video" }/>
+		  <h3>Cuarto</h3>
 		  <img src={ "http://" + RASPI2_IP + "/video" }/>
 		  <Link to='/' className='close'>
 			<i className="fas fa-times"></i>

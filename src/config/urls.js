@@ -8,4 +8,4 @@ export const USERS_URL = `${API_URL}/1/users`;
 export const STATS_URL = `${API_URL}/1/stats`;
 
 export const RASPI1_IP = `192.168.0.3`;
-export const RASPI2_IP = `192.168.0.3`;
+export const RASPI2_IP = `192.168.0.216`;

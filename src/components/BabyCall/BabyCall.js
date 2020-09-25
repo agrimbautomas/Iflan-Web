@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './BabyCall.scss';
 import { Link } from "react-router-dom";
-import { RASPI1_IP } from "../../config/urls";
+import { RASPI1_IP, RASPI2_IP } from "../../config/urls";
 
 class BabyCall extends Component {
 
@@ -12,8 +12,11 @@ class BabyCall extends Component {
 		  <div className="header">
 			<h2>BabyCall</h2>
 		  </div>
+		  <audio controls autoPlay={true}>
+			<source src={ "http://" + RASPI1_IP + ":8888/audio.mp3" } type="audio/mp3"/>
+		  </audio>
 		  <img src={ "http://" + RASPI1_IP + "/video" }/>
-		  <audio src={ "http://" + RASPI1_IP + ":8888/audio.mp3" } controls autoPlay={true}/>
+		  <img src={ "http://" + RASPI2_IP + "/video" }/>
 		  <Link to='/' className='close'>
 			<i className="fas fa-times"></i>
 		  </Link>

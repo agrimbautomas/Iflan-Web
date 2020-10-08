@@ -52,7 +52,7 @@ class SoundsHomeBlock extends Component {
 		  </div>
 		  <h2>Llantos</h2>
 		  <div>
-			Promedio x hora última semana:
+			Promedio x día - última semana:
 			<span> { this.state.avg_per_day }</span>
 		  </div>
 		  <div>

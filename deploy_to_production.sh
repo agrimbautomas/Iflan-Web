@@ -1,18 +1,18 @@
-#echo "> Creating env file"
-#echo "$PRODUCTION_ENV_FILE" > .env
+PRODUCTION_SERVER_HOST="iflan.lazlo.boutique"
+TZ="UTC"
 
-echo "> Building the project"
+printf "> Building the project \n"
 npm run build
 #yarn build:production
 
-echo "> Creating build tar file to upload"
+printf "> Creating build tar file to upload \n"
 tar czvf build.tar.gz build
 
-echo "> Uploading file to the server"
+printf "> Uploading file to $PRODUCTION_SERVER_HOST \n"
 ssh -o StrictHostKeyChecking=no deploy@$PRODUCTION_SERVER_HOST uptime
 scp build.tar.gz deploy@$PRODUCTION_SERVER_HOST:/srv/web
 
-echo "> Replacing old project folder"
+printf "> Replacing old project folder \n"
 ssh -tt -l deploy $PRODUCTION_SERVER_HOST <<-REMOTESSH
 cd /srv/web
 tar xzvf build.tar.gz
@@ -22,4 +22,4 @@ rm build.tar.gz
 exit
 REMOTESSH
 
-echo "> DONE"
+printf "> DONE"

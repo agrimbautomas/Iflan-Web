@@ -1,4 +1,4 @@
-const API_URL = 'https://api.iflan.house';
+const API_URL = 'https://iflan.api.lazlo.boutique';
 
 export const PROJECTS_URL = `${API_URL}/1/projects`;
 export const SHARED_PROJECTS_URL = `${API_URL}/1/projects/shared_view`;

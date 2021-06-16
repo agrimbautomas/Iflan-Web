@@ -26,7 +26,7 @@ deploy_production:
     - docker
   environment:
     name: production
-    url: http://iflan.house
+    url: http://iflan.lazlo.boutique
   script:
     - npm install
     - ./deploy_to_production.sh
